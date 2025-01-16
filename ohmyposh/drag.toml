@@ -1,0 +1,85 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+console_title_template = "{{ .Shell }} in {{ .Folder }}"
+auto_upgrade = false
+
+[[blocks]]
+    type = "rprompt"
+
+    [[blocks.segments]]
+        type = "executiontime"
+        style = "diamond"
+        leading_diamond = ""
+        trailing_diamond = ""
+        foreground = "white"
+        background = "blue"
+        template = "{{ .FormattedMs }}"
+
+[[blocks]]
+    type = "prompt"
+    alignment = "left"
+    newline = true
+
+    [[blocks.segments]]
+        type = "path"
+        style = "diamond"
+        leading_diamond = ""
+        trailing_diamond = ""
+        foreground = "black"
+        background = "red"
+        template = "  {{ .Path }} "
+
+        [blocks.segments.properties]
+            style = "full"
+
+    [[blocks.segments]]
+        type = "text"
+        style = "plain"
+        foreground = "red"
+        background = "transparent"
+        template = "{{ if .Segments.Contains \"Git\" }}{{ else }}{{ end }}"
+
+    [[blocks.segments]]
+        type = "git"
+        style = "diamond"
+        leading_diamond = "<transparent,background></>"
+        trailing_diamond = ""
+        foreground = "black"
+        background_templates = [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}yellow{{ end }}",
+            "green"
+        ]
+        template = " {{ .HEAD }} "
+
+        [blocks.segments.properties]
+            fetch_status = true
+
+[[blocks]]
+    type = "prompt"
+    alignment = "left"
+    newline = true
+
+    [[blocks.segments]]
+        type = "text"
+        style = "plain"
+        foreground_templates = [
+            "{{ if gt .Code 0 }}#ee8800{{ end }}",
+            "{{ if eq .Code 0 }}lightWhite{{ end }}",
+        ]
+        background = "transparent"
+        template = " ᗌ"
+
+[transient_prompt]
+    foreground_templates = [
+        "{{ if gt .Code 0 }}#ee8800{{ end }}",
+        "{{ if eq .Code 0 }}white{{ end }}",
+    ]
+    background = "transparent"
+    template = "ᗌ "
+
+[secondary_prompt]
+    foreground = "lightWhite"
+    background = "transparent"
+    template = " ᗌ "
