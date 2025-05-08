@@ -1,3 +1,15 @@
+if [ -d ~/.config/zsh/.zshrc.d ]; then
+    for rc in ~/.config/zsh/.zshrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+
+if [[ -z $ZELLIJ ]]; then
+    exec zj
+fi
+
 # Location where zinit and plugins are stored
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -51,6 +63,7 @@ zstyle ":completion:*" matcher-list "m:{a-z}={A-Za-z}"
 zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 zstyle ":completion:*" menu no
 zstyle ":fzf-tab:complete:cd:*" fzf-preview 'ls --color $realpath'
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=60"
 
 # Aliases
 alias cat="batcat"
@@ -62,6 +75,14 @@ alias la="eza -lah --icons"
 alias lt="eza -T --icons"
 alias l2="eza -T --icons -L 2"
 
+alias update-omp="curl -s https://ohmyposh.dev/install.sh | sudo bash -s"
+
+alias python="python3"
+
+alias tux='ssh sb4339@drexel.edu@tux.cs.drexel.edu'
+
+alias rga="rg --no-ignore"
+
 alias fd="fdfind"
 
 alias scargo="RUSTC_WRAPPER=sccache cargo"
@@ -72,16 +93,8 @@ alias npm="echo 'use pnpm'"
 alias maga="echo 'make apt (up)grade again'; sudo apt update && sudo apt upgrade -y"
 
 function mkcd() {
-    mkdir $1 && cd $_
+    mkdir -p $1 && cd $_
 }
-
-if [ -d ~/.zshrc.d ]; then
-    for rc in ~/.zshrc.d/*; do
-        if [ -f "$rc" ]; then
-            . "$rc"
-        fi
-    done
-fi
 
 # Variables
 export DEFAULT_USER=drag
@@ -128,3 +141,5 @@ esac
 # pnpm end
 
 . "/home/drag/.deno/env"
+
+fastfetch
