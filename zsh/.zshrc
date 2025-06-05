@@ -66,6 +66,7 @@ zstyle ":fzf-tab:complete:cd:*" fzf-preview 'ls --color $realpath'
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=60"
 
 # Aliases
+alias parrot="curl parrot.live"
 alias cat="batcat"
 
 alias ls="eza --icons"
