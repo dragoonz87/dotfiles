@@ -1,0 +1,50 @@
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="status" {
+                color_tabfg         "#8e95a4"
+                color_tabbg         "#323641"
+                color_activefg      "#1d2025"
+                color_activebg      "#3b8590"
+                color_inactivefg    "#dedede"
+                color_inactivebg    "#4a4f5b"
+                
+                color_purple        "#be68d8"
+                color_teal          "#3b8590"
+                color_orange        "#b1804f"
+
+                format_left   "{mode} #[fg=#cccccc]{session} {tabs}"
+                format_center ""
+                format_right  "{datetime}"
+                format_space  ""
+
+                border_enabled  "false"
+                border_char     "─"
+                border_format   "#[fg=#6C7086]{char}"
+                border_position "top"
+
+                hide_frame_for_single_pane "true"
+
+                mode_normal         "#[bg=$teal]   "
+                mode_locked         "#[bg=$purple]   "
+                mode_pane           "#[bg=$orange]   "
+                mode_tab            "#[bg=$orange] 󰓩  "
+                mode_search         "#[bg=$orange]   "
+                mode_enter_search   "#[bg=$orange]   "
+                mode_scroll         "#[bg=$orange] 󱕒  "
+                mode_session        "#[bg=$orange] 󱂬  "
+                mode_resize         "#[bg=$orange] 󰆾  "
+                mode_rename_tab     "#[bg=$orange] 󰑕  "
+                mode_rename_pane    "#[bg=$orange] 󰑕  "
+
+                tab_normal   "#[fg=$inactivebg]#[fg=$inactivefg,bg=$inactivebg]{index} #[fg=$tabfg,bg=$tabbg] {name} #[fg=$tabbg] "
+                tab_active   "#[fg=$activebg]#[fg=$activefg,bg=$activebg]{index} #[fg=$tabfg,bg=$tabbg] {name} #[fg=$tabbg] "
+
+                datetime        "{format} "
+                datetime_format "%A, %d %b %Y %I:%M"
+                datetime_timezone "America/New_York"
+            }
+        }
+    }
+}

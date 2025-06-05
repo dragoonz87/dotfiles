@@ -6,4 +6,5 @@
 !zsh/**
 !kanata/*
 !zellij/*
+!zellij/layouts/*
 nvim/
