@@ -1,85 +1,83 @@
-#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
-
-version = 2
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+version = 3
 final_space = true
-console_title_template = "{{ .Shell }} in {{ .Folder }}"
-auto_upgrade = false
-
-[[blocks]]
-    type = "rprompt"
-
-    [[blocks.segments]]
-        type = "executiontime"
-        style = "diamond"
-        leading_diamond = ""
-        trailing_diamond = ""
-        foreground = "white"
-        background = "blue"
-        template = "{{ .FormattedMs }}"
-
-[[blocks]]
-    type = "prompt"
-    alignment = "left"
-    newline = true
-
-    [[blocks.segments]]
-        type = "path"
-        style = "diamond"
-        leading_diamond = ""
-        trailing_diamond = ""
-        foreground = "black"
-        background = "red"
-        template = "  {{ .Path }} "
-
-        [blocks.segments.properties]
-            style = "full"
-
-    [[blocks.segments]]
-        type = "text"
-        style = "plain"
-        foreground = "red"
-        background = "transparent"
-        template = "{{ if .Segments.Contains \"Git\" }}{{ else }}{{ end }}"
-
-    [[blocks.segments]]
-        type = "git"
-        style = "diamond"
-        leading_diamond = "<transparent,background></>"
-        trailing_diamond = ""
-        foreground = "black"
-        background_templates = [
-            "{{ if or (.Working.Changed) (.Staging.Changed) }}yellow{{ end }}",
-            "green"
-        ]
-        template = " {{ .HEAD }} "
-
-        [blocks.segments.properties]
-            fetch_status = true
-
-[[blocks]]
-    type = "prompt"
-    alignment = "left"
-    newline = true
-
-    [[blocks.segments]]
-        type = "text"
-        style = "plain"
-        foreground_templates = [
-            "{{ if gt .Code 0 }}#ee8800{{ end }}",
-            "{{ if eq .Code 0 }}lightWhite{{ end }}",
-        ]
-        background = "transparent"
-        template = " ᗌ"
-
-[transient_prompt]
-    foreground_templates = [
-        "{{ if gt .Code 0 }}#ee8800{{ end }}",
-        "{{ if eq .Code 0 }}white{{ end }}",
-    ]
-    background = "transparent"
-    template = "ᗌ "
 
 [secondary_prompt]
-    foreground = "lightWhite"
-    background = "transparent"
-    template = " ᗌ "
+  template = ' ᗌ '
+  foreground = 'lightWhite'
+  background = 'transparent'
+
+[transient_prompt]
+  template = 'ᗌ '
+  background = 'transparent'
+  foreground_templates = ['{{ if gt .Code 0 }}#ee8800{{ end }}', '{{ if eq .Code 0 }}white{{ end }}']
+
+[[blocks]]
+  type = 'rprompt'
+
+  [[blocks.segments]]
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = '{{ .FormattedMs }}'
+    foreground = 'white'
+    background = 'blue'
+    type = 'executiontime'
+    style = 'diamond'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    leading_diamond = ''
+    template = '  {{ .Path }} '
+    foreground = 'black'
+    background = 'red'
+    type = 'path'
+    style = 'diamond'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      style = 'full'
+
+  [[blocks.segments]]
+    template = '{{ if .Segments.Contains "Git" }}{{ else }}{{ end }}'
+    foreground = 'red'
+    background = 'transparent'
+    type = 'text'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    leading_diamond = '<transparent,background></>'
+    trailing_diamond = ''
+    template = ' {{ .HEAD }} '
+    foreground = 'black'
+    type = 'git'
+    style = 'diamond'
+    background_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}yellow{{ end }}', 'green']
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      fetch_status = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    template = ' ᗌ'
+    background = 'transparent'
+    type = 'text'
+    style = 'plain'
+    foreground_templates = ['{{ if gt .Code 0 }}#ee8800{{ end }}', '{{ if eq .Code 0 }}lightWhite{{ end }}']
+
+    [blocks.segments.properties]
+      cache_duration = 'none'

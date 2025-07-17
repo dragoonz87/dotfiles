@@ -101,12 +101,12 @@ function mkcd() {
 export DEFAULT_USER=drag
 export SHELL=/bin/zsh
 export BAT_THEME="TwoDark"
-export JAVA_HOME="/usr/lib/jvm/jdk-23-oracle-x64/"
+# export JAVA_HOME="/usr/lib/jvm/jdk-23-oracle-x64/"
 
 # PATH
-export PATH=$PATH:/home/drag/.cargo/bin
+# export PATH=$PATH:/home/drag/.cargo/bin
 export PATH=$PATH:/home/drag/.local/bin
-export PATH=$PATH:/home/drag/.anaconda3/bin
+# export PATH=$PATH:/home/drag/.anaconda3/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/opt/gradle/gradle-8.10.2/bin
 
@@ -116,31 +116,31 @@ eval "$(zoxide init --cmd cd zsh)"
 # Automatic stuff
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/drag/.anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/drag/.anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/drag/.anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/drag/.anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# __conda_setup="$('/home/drag/.anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/drag/.anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/drag/.anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/drag/.anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
 # <<< conda initialize <<<
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # pnpm
-export PNPM_HOME="/home/drag/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+# export PNPM_HOME="/home/drag/.local/share/pnpm"
+# case ":$PATH:" in
+#   *":$PNPM_HOME:"*) ;;
+#   *) export PATH="$PNPM_HOME:$PATH" ;;
+# esac
 # pnpm end
 
-. "/home/drag/.deno/env"
+# . "/home/drag/.deno/env"
 
 fastfetch
