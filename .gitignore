@@ -7,5 +7,6 @@
 !kanata/*
 !zellij/*
 !zellij/layouts/*
+!ghostty/*
 nvim/
 discord/

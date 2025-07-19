@@ -1,0 +1,18 @@
+theme = /usr/share/ghostty/themes/OneHalfDark
+window-decoration = none
+
+keybind = ctrl+alt+k=goto_split:top
+keybind = ctrl+alt+j=goto_split:bottom
+keybind = ctrl+alt+l=goto_split:right
+keybind = ctrl+alt+h=goto_split:left
+
+keybind = alt+1=unbind
+keybind = alt+2=unbind
+keybind = alt+3=unbind
+keybind = alt+4=unbind
+keybind = alt+5=unbind
+keybind = alt+6=unbind
+keybind = alt+7=unbind
+keybind = alt+8=unbind
+keybind = alt+9=unbind
+keybind = alt+0=unbind
